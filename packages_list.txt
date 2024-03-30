@@ -1,0 +1,6 @@
+curl
+ssh
+git
+unzip
+zip
+neovim
