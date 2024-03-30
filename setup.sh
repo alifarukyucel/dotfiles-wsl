@@ -14,16 +14,14 @@ name=$(grep 'name' "$GIT_CONFIG_TXT" | awk -F " = " '{print $2}')
 git config --file "$GIT_CONFIG" user.email "$email"
 git config --file "$GIT_CONFIG" user.name "$name"
 
+# Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# Install NerdFont Terminus
-curl -Lo "Terminus_NerdFont.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Terminus.zip
-
+# Install NerdFont JetBrainsMono
+curl -Lo "JetBrainsMono.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
 mkdir -p ~/.fonts
+unzip JetBrainsMono.zip -d ~/.fonts
 
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.fonts ~/.fonts
-
-unzip Terminus_NerdFont.zip -d ~/.fonts
-fc-cache -fv
